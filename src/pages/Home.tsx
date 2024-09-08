@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Paths, routeMap } from '../utils';
 
 const Home: React.FC = () => {
 
@@ -9,8 +10,8 @@ const Home: React.FC = () => {
       <h1>Welcome to Our Beer Store!</h1>
       <p>Discover the finest beers we have to offer.</p>
       <nav>
-        <button onClick={()=> navigate("/")}>Home</button>
-        <button onClick={()=> navigate("/about")}>About Us</button>
+        <button onClick={()=> navigate(routeMap[Paths.Home])}>Home</button>
+        <button onClick={()=> navigate(routeMap[Paths.About])}>About Us</button>
       </nav>
     </div>
   );
