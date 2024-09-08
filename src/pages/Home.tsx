@@ -12,6 +12,7 @@ const Home: React.FC = () => {
       <nav>
         <button onClick={()=> navigate(routeMap[Paths.Home])}>Home</button>
         <button onClick={()=> navigate(routeMap[Paths.About])}>About Us</button>
+        <button onClick={()=> navigate(routeMap[Paths.Products])}>Beers</button>
       </nav>
     </div>
   );
