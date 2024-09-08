@@ -1,6 +1,6 @@
 // src/pages/Products.tsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Paths, routeMap } from '../utils';
 
 const Products: React.FC = () => {
@@ -25,8 +25,8 @@ const Products: React.FC = () => {
           <button onClick={() => goToBeerDetails("3")}>Beer 3</button>
         </li>
       </ul>
-      <button onClick={() => navigate(routeMap[Paths.Home])}>Home</button>
 
+      <Outlet />
     </div>
   );
 };

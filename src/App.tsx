@@ -10,8 +10,7 @@ import Products from "./pages/Products";
 const router = createBrowserRouter([
   { path: routeMap[Paths.Home], element: <Home /> },
   { path: routeMap[Paths.About], element: <AboutUs /> },
-  { path: routeMap[Paths.Products], element: <Products /> },
-  { path: routeMap[Paths.ProductDetails], element: <BeerDetails /> },
+  { path: routeMap[Paths.Products], element: <Products />, children:[{ path: routeMap[Paths.ProductDetails], element: <BeerDetails /> }]},
 ]);
 
 const App: React.FC = () => {
