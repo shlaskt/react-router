@@ -6,11 +6,14 @@ import AboutUs from "./pages/AboutUs";
 import { Paths, routeMap } from "./utils";
 import BeerDetails from "./pages/BeerDetails";
 import Products from "./pages/Products";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   { path: routeMap[Paths.Home], element: <Home /> },
   { path: routeMap[Paths.About], element: <AboutUs /> },
   { path: routeMap[Paths.Products], element: <Products />, children:[{ path: routeMap[Paths.ProductDetails], element: <BeerDetails /> }]},
+  { path: routeMap[Paths.Contact], element: <Contact /> },
+
 ]);
 
 const App: React.FC = () => {

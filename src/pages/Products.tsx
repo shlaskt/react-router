@@ -27,6 +27,9 @@ const Products: React.FC = () => {
       </ul>
 
       <Outlet />
+
+      <button onClick={() => navigate(routeMap[Paths.Home])}>Home</button>
+
     </div>
   );
 };

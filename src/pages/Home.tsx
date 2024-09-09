@@ -13,6 +13,8 @@ const Home: React.FC = () => {
         <button onClick={()=> navigate(routeMap[Paths.Home])}>Home</button>
         <button onClick={()=> navigate(routeMap[Paths.About])}>About Us</button>
         <button onClick={()=> navigate(routeMap[Paths.Products])}>Beers</button>
+        <button onClick={()=> navigate(routeMap[Paths.Contact], {state:{message:'We would like to hear from you!'}})}>Contact Us</button>
+        <button onClick={()=> navigate(routeMap[Paths.Contact], {state:{message:'Something went wrong? Let us know!'}})}>Leave Feedback</button>
       </nav>
     </div>
   );
