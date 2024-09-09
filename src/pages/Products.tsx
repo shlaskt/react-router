@@ -3,7 +3,7 @@ import React from "react";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Paths, routeMap } from "../utils";
 
-type Beer = {
+export type Beer = {
   price: string;
   name: string;
   rating: { average: number; reviews: number };
@@ -22,8 +22,8 @@ const Products: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const goToBeerDetails = (id: number) => {
-    navigate(`/products/${id}`);
+  const goToBeerDetails = (beer: Beer) => {
+    navigate(`/products/${beer.id}`, { state: { beer } });
   };
 
   return (
@@ -33,7 +33,7 @@ const Products: React.FC = () => {
       <ul>
         {beers.map((beer) => (
           <li key={beer.id}>
-            <button onClick={() => goToBeerDetails(beer.id)}>{beer.name}</button>
+            <button onClick={() => goToBeerDetails(beer)}>{beer.name}</button>
           </li>
         ))}
       </ul>
