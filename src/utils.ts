@@ -4,6 +4,7 @@ export enum Paths {
     Products,
     ProductDetails,
     Contact,
+    NotFound,
 }
 
 export const routeMap :Record<Paths,string> = {
@@ -12,5 +13,6 @@ export const routeMap :Record<Paths,string> = {
     [Paths.Products]: "/products",
     [Paths.ProductDetails]: "/products/:id",
     [Paths.Contact]: "/contact",
+    [Paths.NotFound]: "*",
 }
 
