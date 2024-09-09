@@ -1,7 +1,7 @@
-// src/pages/Products.tsx
 import React from "react";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Paths, routeMap } from "../utils";
+import './Products.css';
 
 export type Beer = {
   price: string;
@@ -19,7 +19,6 @@ export const productsLoader = async () => {
 
 const Products: React.FC = () => {
   const beers = useLoaderData() as Beer[];
-
   const navigate = useNavigate();
 
   const goToBeerDetails = (beer: Beer) => {
@@ -30,15 +29,22 @@ const Products: React.FC = () => {
     <div>
       <h1>Our Products</h1>
       <p>Explore our selection of exquisite beers.</p>
-      <ul>
-        {beers.map((beer) => (
-          <li key={beer.id}>
-            <button onClick={() => goToBeerDetails(beer)}>{beer.name}</button>
-          </li>
-        ))}
-      </ul>
-
-      <Outlet />
+      
+      <div className="products-container">
+        <div className="beer-list">
+          <ul>
+            {beers.map((beer) => (
+              <li key={beer.id}>
+                <button onClick={() => goToBeerDetails(beer)}>{beer.name}</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div className="beer-details">
+          <Outlet />
+        </div>
+      </div>
 
       <button onClick={() => navigate(routeMap[Paths.Home])}>Home</button>
     </div>
