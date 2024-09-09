@@ -7,6 +7,7 @@ import { Paths, routeMap } from "./utils";
 import BeerDetails from "./pages/BeerDetails";
 import Products, { productsLoader } from "./pages/Products";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   { path: routeMap[Paths.Home], element: <Home /> },
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: routeMap[Paths.Contact], element: <Contact /> },
+  { path: routeMap[Paths.NotFound], element: <NotFound /> },
 ]);
 
 const App: React.FC = () => {
