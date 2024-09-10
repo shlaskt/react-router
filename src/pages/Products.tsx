@@ -1,7 +1,7 @@
 import React from "react";
-import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import { Paths, routeMap } from "../utils";
-import './Products.css';
+import "./Products.css";
 
 export type Beer = {
   price: string;
@@ -12,7 +12,9 @@ export type Beer = {
 };
 
 export const productsLoader = async () => {
-  const response = await fetch("https://api.sampleapis.com/beers/ale");
+  const [response, _] = await Promise.all([
+    fetch("https://api.sampleapis.com/beers/ale"),
+    new Promise(resolve => setTimeout(resolve, 3000))]);
   const beers = await response.json();
   return beers;
 };
@@ -20,27 +22,30 @@ export const productsLoader = async () => {
 const Products: React.FC = () => {
   const beers = useLoaderData() as Beer[];
   const navigate = useNavigate();
+  const navigation = useNavigation(); 
 
   const goToBeerDetails = (beer: Beer) => {
     navigate(`/products/${beer.id}`, { state: { beer } });
   };
 
-  return (
+  return navigation.state === "loading" ? <div>Loading</div> : (
     <div>
       <h1>Our Products</h1>
       <p>Explore our selection of exquisite beers.</p>
-      
+
       <div className="products-container">
         <div className="beer-list">
           <ul>
             {beers.map((beer) => (
               <li key={beer.id}>
-                <button onClick={() => goToBeerDetails(beer)}>{beer.name}</button>
+                <button onClick={() => goToBeerDetails(beer)}>
+                  {beer.name}
+                </button>
               </li>
             ))}
           </ul>
         </div>
-        
+
         <div className="beer-details">
           <Outlet />
         </div>

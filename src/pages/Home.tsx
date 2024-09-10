@@ -1,9 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import { Paths, routeMap } from "../utils";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const navigation = useNavigation(); 
+  
   return (
     <div>
       <h1>Welcome to Our Beer Store!</h1>
@@ -35,6 +37,7 @@ const Home: React.FC = () => {
           Leave Feedback
         </button>
       </nav>
+      {navigation.state === 'loading'? 'Loading...' : null}
     </div>
   );
 };
