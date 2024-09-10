@@ -1,11 +1,12 @@
 // src/pages/BeerDetails.tsx
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Beer } from "./Products";
+import { routeMap, Paths } from "../utils";
 
 const BeerDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  console.log("🚀 ~ id:", id)
+  const navigate = useNavigate();
   const location = useLocation();
   const beer: Beer = location.state.beer;
 
@@ -15,6 +16,15 @@ const BeerDetails: React.FC = () => {
       <p>Name: {beer.name}</p>
       <p>Price {beer.price}</p>
       <img alt="beer" src={beer.image}></img> <br/>
+      <button
+          onClick={() =>
+            navigate(`/products/${beer.id}/order`, {
+              state: { message: `Order ${(beer.name).toUpperCase()} Now!`, beer },
+            })
+          }
+        >
+          Order
+        </button>
     </div>
   );
 };

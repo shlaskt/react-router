@@ -17,10 +17,14 @@ const router = createBrowserRouter([
     element: <Products />,
     loader: productsLoader,
     children: [
-      { path: routeMap[Paths.ProductDetails], element: <BeerDetails /> },
+      {
+        path: routeMap[Paths.ProductDetails],
+        element: <BeerDetails />,
+      },
     ],
   },
   { path: routeMap[Paths.Contact], element: <Contact /> },
+  { path: routeMap[Paths.Order], element: <Contact /> },
   { path: routeMap[Paths.NotFound], element: <NotFound /> },
 ]);
 
