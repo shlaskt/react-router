@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   
   return (
     <div>
-      <h1>Welcome to Our Beer Store!</h1>
+      <h1>Welcome to Our Beer Store - Beers Enter!</h1>
       <p>Discover the finest beers we have to offer.</p>
       <nav>
         <button onClick={() => navigate(routeMap[Paths.Home])}>Home</button>
