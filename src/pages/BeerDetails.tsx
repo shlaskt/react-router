@@ -1,6 +1,6 @@
 // src/pages/BeerDetails.tsx
 import React from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Outlet } from "react-router-dom";
 import { Beer } from "./Products";
 import { routeMap, Paths } from "../utils";
 
@@ -25,6 +25,7 @@ const BeerDetails: React.FC = () => {
         >
           Order
         </button>
+        <Outlet/>
     </div>
   );
 };

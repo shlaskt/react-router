@@ -20,11 +20,13 @@ const router = createBrowserRouter([
       {
         path: routeMap[Paths.ProductDetails],
         element: <BeerDetails />,
+        children: [
+          { path: routeMap[Paths.Order], element: <Contact /> },
+        ],
       },
     ],
   },
   { path: routeMap[Paths.Contact], element: <Contact /> },
-  { path: routeMap[Paths.Order], element: <Contact /> },
   { path: routeMap[Paths.NotFound], element: <NotFound /> },
 ]);
 
